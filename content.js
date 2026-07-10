@@ -13,17 +13,14 @@ chrome.runtime.onMessage.addListener((request, sender, sendResponse) => {
 
     else if (request.action === "replaceImages") {
 
-        replaceAllImages().then(count => {
+        const count = replaceAllImages();
 
-            startObserver();
+        startObserver();
 
-            sendResponse({
-                count: count
-            });
-
+        sendResponse({
+            count: count
         });
 
-        return true;
     }
 
     else if (request.action === "restoreImages") {
@@ -40,23 +37,21 @@ chrome.runtime.onMessage.addListener((request, sender, sendResponse) => {
 
 });
 
-async function replaceAllImages() {
+function replaceAllImages() {
 
     isReplacing = true;
 
-    const images = [...document.querySelectorAll("img")];
+    const images = document.querySelectorAll("img");
 
     let replaced = 0;
 
-    for (const img of images) {
+    images.forEach(img => {
 
-        const success = await replaceImage(img);
-
-        if (success) {
+        if (replaceImage(img)) {
             replaced++;
         }
 
-    }
+    });
 
     isReplacing = false;
 
@@ -64,7 +59,7 @@ async function replaceAllImages() {
 
 }
 
-async function replaceImage(img) {
+function replaceImage(img) {
 
     if (!img) return false;
 
@@ -82,26 +77,16 @@ async function replaceImage(img) {
         img.dataset.originalSizes = img.sizes || "";
     }
 
-    try {
+    img.removeAttribute("srcset");
+    img.removeAttribute("sizes");
+    img.removeAttribute("loading");
 
-        img.removeAttribute("srcset");
-        img.removeAttribute("sizes");
-        img.removeAttribute("loading");
+    img.src =
+        `https://cataas.com/cat?width=400&height=400&random=${Math.random()}`;
 
-        img.src =
-            `https://cataas.com/cat?width=400&height=400&random=${Date.now()}-${Math.random()}`;
+    img.dataset.catReplaced = "true";
 
-        img.dataset.catReplaced = "true";
-
-        return true;
-
-    } catch (error) {
-
-        console.error(error);
-
-        return false;
-
-    }
+    return true;
 
 }
 
@@ -148,23 +133,23 @@ function startObserver() {
 
         mutations.forEach(mutation => {
 
-            mutation.addedNodes.forEach(async node => {
+            mutation.addedNodes.forEach(node => {
 
                 if (node.nodeType !== 1) return;
 
                 if (node.tagName === "IMG") {
 
-                    await replaceImage(node);
+                    replaceImage(node);
 
                 }
 
-                const imgs = node.querySelectorAll
-                    ? node.querySelectorAll("img")
-                    : [];
+                else if (node.querySelectorAll) {
 
-                for (const img of imgs) {
+                    node.querySelectorAll("img").forEach(img => {
 
-                    await replaceImage(img);
+                        replaceImage(img);
+
+                    });
 
                 }
 
@@ -175,10 +160,8 @@ function startObserver() {
     });
 
     observer.observe(document.body, {
-
         childList: true,
         subtree: true
-
     });
 
 }
