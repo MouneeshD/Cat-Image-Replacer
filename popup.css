@@ -8,155 +8,152 @@
 }
 
 body{
-    width:360px;
+    width:330px;
     background:linear-gradient(135deg,#F7F7F2,#EEF4F0);
-    padding:18px;
+    padding:12px;
 }
 
 .container{
     background:#ffffff;
-    border-radius:10px;
-    padding:20px;
-    border:2px solid #E4ECE8;
-    box-shadow:0 10px 25px rgba(124,157,150,.12);
+    border-radius:12px;
+    padding:16px;
+    border:1px solid #E4ECE8;
+    box-shadow:0 8px 18px rgba(124,157,150,.10);
 }
 
 .header{
     text-align:center;
-    margin-bottom:22px;
+    margin-bottom:14px;
 }
 
 .logo{
-    width:85px;
-    height:85px;
+    width:60px;
+    height:60px;
     margin:auto;
     border-radius:50%;
     background:linear-gradient(135deg,#7C9D96,#A7C4BC);
     display:flex;
     justify-content:center;
     align-items:center;
-    font-size:46px;
+    font-size:34px;
     color:white;
-    margin-bottom:15px;
-    box-shadow:0 8px 20px rgba(124,157,150,.20);
+    margin-bottom:10px;
+    box-shadow:0 5px 12px rgba(124,157,150,.18);
 }
 
 .header h1{
-    color:#343b39;
-    font-size:24px;
-    margin-bottom:6px;
+    color:#343B39;
+    font-size:20px;
+    margin-bottom:4px;
 }
 
 .header p{
     color:#6B7280;
-    font-size:14px;
+    font-size:12px;
 }
 
 .card{
-    background:#dfdcdc;
+    background:#F8FAF9;
     border-radius:10px;
-    padding:18px;
-    margin-bottom:16px;
-    text-align:center;
+    padding:12px;
+    margin-bottom:10px;
     border:1px solid #E6ECE9;
-    box-shadow:0 6px 18px rgba(124,157,150,.08);
-    transition:.3s;
-}
-
-.card:hover{
-    transform:translateY(-3px);
-    box-shadow:0 12px 24px rgba(124,157,150,.14);
+    text-align:center;
 }
 
 .card h3{
-    color:#78a398;
-    margin-bottom:8px;
-    font-size:15px;
+    color:#5F7F77;
+    font-size:14px;
+    margin-bottom:5px;
+    
 }
 
 .card p{
-    color:#2f353d;
+    color:#2F353D;
+    font-size:13px;
     font-weight:500;
     word-break:break-word;
 }
 
 .card h2{
     color:#7C9D96;
-    font-size:34px;
+    font-size:28px;
+    margin-top:4px;
+    text-align:center;
 }
 
 .button-group{
     display:flex;
     flex-direction:column;
-    gap:14px;
-    margin:22px 0;
+    gap:10px;
+    margin:14px 0;
 }
 
 button{
-    padding:14px;
+    width:100%;
+    padding:11px;
     border:none;
-    border-radius:12px;
-    font-size:15px;
+    border-radius:10px;
+    font-size:14px;
     font-weight:600;
     cursor:pointer;
-    transition:.3s;
+    transition:.25s;
 }
 
 #replaceBtn{
-    background:#5e9c8b;
-    color:white;
+    background:#32b693;
+    color:rgb(49, 49, 49);
 }
 
 #replaceBtn:hover{
-    background:#6E8F88;
-    transform:translateY(-2px);
-    box-shadow:0 8px 20px rgba(124,157,150,.22);
+    background:#aeddd3;
 }
 
 #restoreBtn{
-    background:#696f6e;
+    background:#696F6E;
     color:white;
 }
 
 #restoreBtn:hover{
     background:#90B3AA;
-    transform:translateY(-2px);
-    box-shadow:0 8px 20px rgba(167,196,188,.25);
 }
 
 .status-card{
     background:#E9EFEA;
-    border-radius:16px;
-    padding:18px;
-    text-align:center;
-    margin-bottom:15px;
+    border-radius:10px;
+    padding:12px;
+    margin-bottom:10px;
     border:1px solid #D8E4DD;
 }
 
 .status-card h3{
     color:#5F7F77;
-    margin-bottom:8px;
+    font-size:14px;
+    margin-bottom:5px;
+    text-align:center;
 }
 
 #status{
+    font-size:13px;
     color:#6BAA75;
     font-weight:600;
+    text-align:center;
 }
 
 .footer{
-    margin-top:15px;
-    padding-top:15px;
+    margin-top:8px;
+    padding-top:10px;
     border-top:1px solid #E5E7EB;
     text-align:center;
 }
 
 .footer p{
     color:#6B7280;
-    font-size:13px;
+    font-size:11px;
 }
 
 button:active{
-    transform:scale(.97);
+    transform:scale(.98);
 }
 
 button:disabled{
