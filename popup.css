@@ -65,7 +65,6 @@ body{
     color:#5F7F77;
     font-size:14px;
     margin-bottom:5px;
-    
 }
 
 .card p{
@@ -79,13 +78,9 @@ body{
     color:#7C9D96;
     font-size:28px;
     margin-top:4px;
-    text-align:center;
 }
 
 .button-group{
-    display:flex;
-    flex-direction:column;
-    gap:10px;
     margin:14px 0;
 }
 
@@ -98,15 +93,6 @@ button{
     font-weight:600;
     cursor:pointer;
     transition:.25s;
-}
-
-#replaceBtn{
-    background:#32b693;
-    color:rgb(49, 49, 49);
-}
-
-#replaceBtn:hover{
-    background:#aeddd3;
 }
 
 #restoreBtn{
@@ -124,20 +110,19 @@ button{
     padding:12px;
     margin-bottom:10px;
     border:1px solid #D8E4DD;
+    text-align:center;
 }
 
 .status-card h3{
     color:#5F7F77;
     font-size:14px;
     margin-bottom:5px;
-    text-align:center;
 }
 
 #status{
     font-size:13px;
     color:#6BAA75;
     font-weight:600;
-    text-align:center;
 }
 
 .footer{

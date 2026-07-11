@@ -2,7 +2,6 @@ const websiteName = document.getElementById("websiteName");
 const imageCount = document.getElementById("imageCount");
 const status = document.getElementById("status");
 
-const replaceBtn = document.getElementById("replaceBtn");
 const restoreBtn = document.getElementById("restoreBtn");
 
 function updateStatus(message, type = "") {
@@ -48,40 +47,10 @@ chrome.tabs.query({ active: true, currentWindow: true }, (tabs) => {
 
             imageCount.textContent = response.count;
 
+            updateStatus("Automatic Cat Mode Enabled 🐱", "success");
+
         }
     );
-
-});
-
-replaceBtn.addEventListener("click", () => {
-
-    updateStatus("Replacing images...", "loading");
-
-    chrome.tabs.query({ active: true, currentWindow: true }, (tabs) => {
-
-        chrome.tabs.sendMessage(
-            tabs[0].id,
-            { action: "replaceImages" },
-            (response) => {
-
-                if (chrome.runtime.lastError) {
-
-                    updateStatus("Unable to replace images", "error");
-                    return;
-
-                }
-
-                imageCount.textContent = response.count;
-
-                updateStatus(
-                    `Successfully replaced ${response.count} image(s)!`,
-                    "success"
-                );
-
-            }
-        );
-
-    });
 
 });
 
